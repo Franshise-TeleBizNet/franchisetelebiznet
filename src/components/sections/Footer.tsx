@@ -20,14 +20,11 @@ export const Footer = () => {
               TeleBizNet
             </h3>
             <p className="text-sm mb-4">
-              Ваш надежный партнер в создании пассивного дохода через
-              автоматизированные медиаканалы.
+              Ваш надежный партнер в создании пассивного дохода через автоматизированные медиаканалы.
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">
-              Навигация
-            </h3>
+            <h3 className="text-lg font-semibold text-white mb-4">Навигация</h3>
             <ul className="space-y-2 text-sm">
               {navLinks.map((link, index) => (
                 <li key={index}>
@@ -36,8 +33,7 @@ export const Footer = () => {
                     onClick={(e) => {
                       e.preventDefault();
                       const element = document.querySelector(link.href);
-                      if (element)
-                        element.scrollIntoView({ behavior: "smooth" });
+                      if (element) element.scrollIntoView({ behavior: "smooth" });
                     }}
                     className="hover:text-accent transition-colors"
                   >
@@ -48,9 +44,7 @@ export const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">
-              Правовая информация
-            </h3>
+            <h3 className="text-lg font-semibold text-white mb-4">Правовая информация</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/partner-program" className="hover:text-accent transition-colors">
@@ -81,32 +75,23 @@ export const Footer = () => {
           </div>
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Контакты</h3>
-            <p className="text-sm mb-2">ООО "ТелеБизНет"</p>
+            <p className="text-sm mb-2">ТелеБизНет</p>
             <p className="text-sm mb-2">
-              <a
-                href="tel:+79361112277"
-                className="hover:text-accent font-semibold transition-colors"
-              >
+              <a href="tel:+79361112277" className="hover:text-accent font-semibold transition-colors">
                 +7 936 111-22-77
               </a>
             </p>
             <p className="text-sm">
-              <a
-                href="mailto:info@telebiznet.ru"
-                className="hover:text-accent transition-colors"
-              >
-                info@telebiznet.ru
+              <a href="mailto:serge.purt@gmail.com" className="hover:text-accent transition-colors">
+                serge.purt@gmail.com
               </a>
-            </p>
-            <p className="text-sm mt-2">
-              Управляющий партнер: Серж Пустовойтов
             </p>
           </div>
         </div>
         <div className="border-t border-gray-700 pt-8 text-center text-sm">
           <p>
-            © {new Date().getFullYear()} TeleBizNet. Все права защищены.
-            Информация на сайте не является публичной офертой.
+            © 2018 - {new Date().getFullYear()} TeleBizNet. Все права защищены. Информация на сайте не является
+            публичной офертой.
           </p>
         </div>
       </div>
