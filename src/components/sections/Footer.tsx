@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
 const navLinks = [
-  { href: "#about", label: "О компании" },
-  { href: "#how-it-works", label: "Как это работает" },
-  { href: "#franchise-packages", label: "Пакеты франшизы" },
-  { href: "#testimonials", label: "Истории успеха" },
-  { href: "#calculator-section", label: "Калькулятор дохода" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Связаться с нами" },
+  { href: "/#about", label: "О компании" },
+  { href: "/#how-it-works", label: "Как это работает" },
+  { href: "/#franchise-packages", label: "Пакеты франшизы" },
+  { href: "/#testimonials", label: "Истории успеха" },
+  { href: "/#calculator-section", label: "Калькулятор дохода" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/#contact", label: "Связаться с нами" },
 ];
 
 export const Footer = () => {
@@ -16,9 +16,11 @@ export const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
           <div>
-            <h3 className="text-2xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
-              TeleBizNet
-            </h3>
+            <Link to="/" className="block">
+              <h3 className="text-2xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
+                TeleBizNet
+              </h3>
+            </Link>
             <p className="text-sm mb-4">
               Ваш надежный партнер в создании пассивного дохода через автоматизированные медиаканалы.
             </p>
@@ -28,17 +30,12 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm">
               {navLinks.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const element = document.querySelector(link.href);
-                      if (element) element.scrollIntoView({ behavior: "smooth" });
-                    }}
+                  <Link
+                    to={link.href}
                     className="hover:text-accent transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
