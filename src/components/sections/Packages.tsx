@@ -62,18 +62,14 @@ export const Packages = () => {
           </span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
-          Мы предлагаем гибкие варианты для разных целей и возможностей – от
-          активного участия до полностью пассивного дохода.
+          Мы предлагаем гибкие варианты для разных целей и возможностей – от активного участия до полностью пассивного
+          дохода.
         </p>
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {packages.map((pkg, index) => (
             <Card
               key={index}
-              className={`relative ${
-                pkg.recommended
-                  ? "border-2 border-primary shadow-2xl scale-105"
-                  : ""
-              }`}
+              className={`relative ${pkg.recommended ? "border-2 border-primary shadow-2xl scale-105" : ""}`}
             >
               {pkg.recommended && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
@@ -85,20 +81,12 @@ export const Packages = () => {
               <CardContent className="p-6 flex flex-col h-full">
                 <div className="text-center mb-6 pt-4">
                   <h3 className="text-2xl font-bold mb-1">{pkg.name}</h3>
-                  <p className="text-sm text-muted-foreground">
-                    {pkg.subtitle}
-                  </p>
+                  <p className="text-sm text-muted-foreground">{pkg.subtitle}</p>
                 </div>
                 <div className="text-center mb-6">
                   <span className="text-4xl font-extrabold">{pkg.price}</span>
-                  <p className="text-muted-foreground text-sm">
-                    паушальный взнос
-                  </p>
-                  {pkg.priceNote && (
-                    <p className="text-xs text-muted-foreground mt-1">
-                      {pkg.priceNote}
-                    </p>
-                  )}
+                  <p className="text-muted-foreground text-sm">паушальный взнос</p>
+                  {pkg.priceNote && <p className="text-xs text-muted-foreground mt-1">{pkg.priceNote}</p>}
                 </div>
                 <ul className="space-y-3 mb-8 flex-grow">
                   {pkg.features.map((feature, idx) => (
@@ -108,11 +96,7 @@ export const Packages = () => {
                     </li>
                   ))}
                 </ul>
-                <Button
-                  onClick={scrollToContact}
-                  variant={pkg.recommended ? "default" : "outline"}
-                  className="w-full"
-                >
+                <Button onClick={scrollToContact} variant={pkg.recommended ? "default" : "outline"} className="w-full">
                   Выбрать {pkg.name.split(" ")[0]}
                 </Button>
               </CardContent>
@@ -120,27 +104,9 @@ export const Packages = () => {
           ))}
         </div>
         <p className="text-center text-xs text-muted-foreground mt-6">
-          *При недостижении прибыли 300 000 руб./мес. в первый год (для пакета
-          "Премиум Инвестор"). Дополнительная оплата.
+          *При недостижении прибыли 300 000 руб./мес. в первый год (для пакета "Премиум Инвестор"). Дополнительная
+          оплата.
         </p>
-        <Card className="mt-10 bg-background">
-          <CardContent className="p-6 text-center">
-            <h4 className="text-xl font-semibold mb-3">
-              Дополнительные возможности для всех партнеров:
-            </h4>
-            <p className="text-muted-foreground text-sm">
-              Независимо от выбранного пакета, вы получаете доступ к нашей{" "}
-              <span <Link to="/partner-program" className="hover:text-accent transition-colors">
-                  Партнерской программе
-                </Link>
-              </span>{" "}
-              (конвертируйте контакты в капитал) и{" "}
-              <Link to="/ambassador-club" className="hover:text-accent transition-colors">
-                  Клубу Амбассадоров{" "}
-              (особые условия для блогеров с аудиторией от 100 000).
-            </p>
-          </CardContent>
-        </Card>
       </div>
     </section>
   );
