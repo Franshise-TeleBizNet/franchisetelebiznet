@@ -1,4 +1,4 @@
-import { CheckCircle2, X } from "lucide-react";
+import { CheckCircle2, X, FileText, Users, TrendingUp, DollarSign, PieChart, RefreshCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const notToDo = [
@@ -85,24 +85,27 @@ export const HowItWorks = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4 w-full">
                   {[
-                    { label: "КОНТЕНТ", icon: "📝", delay: "0s" },
-                    { label: "АУДИТОРИЯ", icon: "👥", delay: "0.5s" },
-                    { label: "ПРОДАЖИ", icon: "💰", delay: "1s" },
-                    { label: "ЗАРАБОТОК", icon: "📈", delay: "1.5s" },
-                    { label: "ИЗДЕРЖКИ", icon: "📊", delay: "2s" },
-                    { label: "РЕИНВЕСТ", icon: "♻️", delay: "2.5s" },
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className="bg-background/50 backdrop-blur-sm rounded-lg p-3 text-center transition-all duration-300 hover:scale-105 hover:bg-primary/10 animate-fade-in border border-primary/20"
-                      style={{ animationDelay: item.delay }}
-                    >
-                      <div className="text-2xl mb-1">{item.icon}</div>
-                      <div className="text-xs font-semibold text-foreground/80">
-                        {item.label}
+                    { label: "КОНТЕНТ", Icon: FileText, delay: "0s", color: "text-blue-400" },
+                    { label: "АУДИТОРИЯ", Icon: Users, delay: "0.5s", color: "text-purple-400" },
+                    { label: "ПРОДАЖИ", Icon: TrendingUp, delay: "1s", color: "text-green-400" },
+                    { label: "ЗАРАБОТОК", Icon: DollarSign, delay: "1.5s", color: "text-yellow-400" },
+                    { label: "ИЗДЕРЖКИ", Icon: PieChart, delay: "2s", color: "text-orange-400" },
+                    { label: "РЕИНВЕСТ", Icon: RefreshCcw, delay: "2.5s", color: "text-cyan-400" },
+                  ].map((item, index) => {
+                    const IconComponent = item.Icon;
+                    return (
+                      <div
+                        key={index}
+                        className="bg-background/50 backdrop-blur-sm rounded-lg p-3 text-center transition-all duration-300 hover:scale-105 hover:bg-primary/10 animate-fade-in border border-primary/20"
+                        style={{ animationDelay: item.delay }}
+                      >
+                        <IconComponent className={`w-6 h-6 mx-auto mb-2 ${item.color}`} />
+                        <div className="text-xs font-semibold text-foreground/80">
+                          {item.label}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary/5 rounded-full animate-pulse" />
               </div>

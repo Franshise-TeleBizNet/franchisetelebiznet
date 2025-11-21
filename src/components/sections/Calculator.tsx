@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
@@ -22,6 +22,43 @@ export const Calculator = () => {
     else if (investment === "high") income = channels * 35000;
     setResult(Math.round(income / 1000) * 1000);
   };
+
+  // Generate dynamic chart data based on selected values
+  const chartData = useMemo(() => {
+    let baseIncome = 0;
+    if (investment === "low") baseIncome = channels * 10000;
+    else if (investment === "medium") baseIncome = channels * 16000;
+    else if (investment === "high") baseIncome = channels * 35000;
+
+    // Generate 13 data points for 12 months
+    const points: [number, number][] = [];
+    const startX = 40;
+    const endX = 280;
+    const maxY = 180;
+    const minY = 30;
+    
+    for (let i = 0; i < 13; i++) {
+      const x = startX + (i * (endX - startX) / 12);
+      // Growth curve: starts slow, accelerates in middle, stabilizes at end
+      const growthFactor = 1 + (i / 12) * 1.5; // 100% to 250% growth
+      const y = maxY - ((growthFactor - 1) / 1.5) * (maxY - minY);
+      points.push([x, y]);
+    }
+    
+    return { points, maxIncome: baseIncome * 2.5 };
+  }, [channels, investment]);
+
+  // Generate Y-axis labels based on max income
+  const yAxisLabels = useMemo(() => {
+    const max = chartData.maxIncome;
+    return [
+      { label: `${(max / 1000000).toFixed(1)}M`, value: max },
+      { label: `${(max * 0.75 / 1000000).toFixed(1)}M`, value: max * 0.75 },
+      { label: `${(max * 0.5 / 1000000).toFixed(1)}M`, value: max * 0.5 },
+      { label: `${(max * 0.25 / 1000).toFixed(0)}K`, value: max * 0.25 },
+      { label: "0", value: 0 },
+    ];
+  }, [chartData.maxIncome]);
 
   return (
     <section
@@ -72,7 +109,7 @@ export const Calculator = () => {
                   ))}
                   
                   {/* Y-axis labels */}
-                  {["2M", "1.5M", "1M", "500K", "0"].map((label, i) => (
+                  {yAxisLabels.map((item, i) => (
                     <text
                       key={i}
                       x="35"
@@ -82,20 +119,20 @@ export const Calculator = () => {
                       textAnchor="end"
                       opacity="0.6"
                     >
-                      {label}
+                      {item.label}
                     </text>
                   ))}
                   
                   {/* Area under curve */}
                   <path
-                    d="M 40 180 L 60 170 L 80 155 L 100 145 L 120 130 L 140 120 L 160 105 L 180 95 L 200 80 L 220 70 L 240 55 L 260 45 L 280 30 L 290 30 L 290 180 Z"
+                    d={`M ${chartData.points.map(([x, y]) => `${x} ${y}`).join(' L ')} L 290 ${chartData.points[chartData.points.length - 1][1]} L 290 180 Z`}
                     fill="url(#incomeGradient)"
                     className="animate-fade-in"
                   />
                   
                   {/* Growth curve */}
                   <path
-                    d="M 40 180 L 60 170 L 80 155 L 100 145 L 120 130 L 140 120 L 160 105 L 180 95 L 200 80 L 220 70 L 240 55 L 260 45 L 280 30"
+                    d={`M ${chartData.points.map(([x, y]) => `${x} ${y}`).join(' L ')}`}
                     stroke="#60a5fa"
                     strokeWidth="3"
                     fill="none"
@@ -106,10 +143,7 @@ export const Calculator = () => {
                   />
                   
                   {/* Data points */}
-                  {[
-                    [40, 180], [60, 170], [80, 155], [100, 145], [120, 130], [140, 120],
-                    [160, 105], [180, 95], [200, 80], [220, 70], [240, 55], [260, 45], [280, 30]
-                  ].map(([x, y], i) => (
+                  {chartData.points.map(([x, y], i) => (
                     <circle
                       key={i}
                       cx={x}
@@ -119,7 +153,7 @@ export const Calculator = () => {
                       className="animate-scale-in"
                       style={{ animationDelay: `${0.3 + i * 0.05}s` }}
                     >
-                      <title>Месяц {i + 1}</title>
+                      <title>Месяц {i + 1}: ~{((chartData.maxIncome * (1 + (i / 12) * 1.5) / 2.5) / 1000).toFixed(0)}K ₽</title>
                     </circle>
                   ))}
                   
