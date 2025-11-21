@@ -44,10 +44,101 @@ export const Calculator = () => {
         </div>
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
           <div className="flex items-center justify-center">
-            <div className="w-full aspect-square max-w-md bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center">
-              <p className="text-white/60 text-center px-4">
-                [График роста дохода]
-              </p>
+            <div className="w-full aspect-square max-w-md bg-white/10 backdrop-blur-sm rounded-xl p-6">
+              <h4 className="text-white font-semibold mb-4 text-center">
+                Прогноз роста дохода (12 месяцев)
+              </h4>
+              <div className="relative h-[calc(100%-2rem)]">
+                <svg viewBox="0 0 300 200" className="w-full h-full">
+                  <defs>
+                    <linearGradient id="incomeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.6" />
+                      <stop offset="100%" stopColor="#60a5fa" stopOpacity="0.1" />
+                    </linearGradient>
+                  </defs>
+                  
+                  {/* Grid lines */}
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <line
+                      key={i}
+                      x1="40"
+                      y1={20 + i * 40}
+                      x2="290"
+                      y2={20 + i * 40}
+                      stroke="white"
+                      strokeOpacity="0.1"
+                      strokeWidth="1"
+                    />
+                  ))}
+                  
+                  {/* Y-axis labels */}
+                  {["2M", "1.5M", "1M", "500K", "0"].map((label, i) => (
+                    <text
+                      key={i}
+                      x="35"
+                      y={25 + i * 40}
+                      fill="white"
+                      fontSize="10"
+                      textAnchor="end"
+                      opacity="0.6"
+                    >
+                      {label}
+                    </text>
+                  ))}
+                  
+                  {/* Area under curve */}
+                  <path
+                    d="M 40 180 L 60 170 L 80 155 L 100 145 L 120 130 L 140 120 L 160 105 L 180 95 L 200 80 L 220 70 L 240 55 L 260 45 L 280 30 L 290 30 L 290 180 Z"
+                    fill="url(#incomeGradient)"
+                    className="animate-fade-in"
+                  />
+                  
+                  {/* Growth curve */}
+                  <path
+                    d="M 40 180 L 60 170 L 80 155 L 100 145 L 120 130 L 140 120 L 160 105 L 180 95 L 200 80 L 220 70 L 240 55 L 260 45 L 280 30"
+                    stroke="#60a5fa"
+                    strokeWidth="3"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="animate-fade-in"
+                    style={{ animationDelay: "0.2s" }}
+                  />
+                  
+                  {/* Data points */}
+                  {[
+                    [40, 180], [60, 170], [80, 155], [100, 145], [120, 130], [140, 120],
+                    [160, 105], [180, 95], [200, 80], [220, 70], [240, 55], [260, 45], [280, 30]
+                  ].map(([x, y], i) => (
+                    <circle
+                      key={i}
+                      cx={x}
+                      cy={y}
+                      r="4"
+                      fill="white"
+                      className="animate-scale-in"
+                      style={{ animationDelay: `${0.3 + i * 0.05}s` }}
+                    >
+                      <title>Месяц {i + 1}</title>
+                    </circle>
+                  ))}
+                  
+                  {/* X-axis labels */}
+                  {["1", "3", "6", "9", "12"].map((month, i) => (
+                    <text
+                      key={i}
+                      x={40 + i * 62.5}
+                      y="195"
+                      fill="white"
+                      fontSize="10"
+                      textAnchor="middle"
+                      opacity="0.6"
+                    >
+                      {month}м
+                    </text>
+                  ))}
+                </svg>
+              </div>
             </div>
           </div>
           <Card>

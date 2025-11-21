@@ -74,10 +74,38 @@ export const HowItWorks = () => {
             </Button>
           </div>
           <div className="flex items-center justify-center">
-            <div className="w-full max-w-md aspect-square bg-muted/30 rounded-xl flex items-center justify-center">
-              <p className="text-muted-foreground text-center px-4">
-                [Анимация КАПРИЗ будет здесь]
-              </p>
+            <div className="w-full max-w-md aspect-square bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10 rounded-xl p-8 relative overflow-hidden">
+              <div className="absolute inset-0 bg-grid-white/5" />
+              <div className="relative h-full flex flex-col items-center justify-center space-y-6">
+                <div className="text-center mb-4">
+                  <h4 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    КАПРИЗ
+                  </h4>
+                  <p className="text-xs text-muted-foreground mt-1">Технология автоматизации</p>
+                </div>
+                <div className="grid grid-cols-2 gap-4 w-full">
+                  {[
+                    { label: "КОНТЕНТ", icon: "📝", delay: "0s" },
+                    { label: "АУДИТОРИЯ", icon: "👥", delay: "0.5s" },
+                    { label: "ПРОДАЖИ", icon: "💰", delay: "1s" },
+                    { label: "ЗАРАБОТОК", icon: "📈", delay: "1.5s" },
+                    { label: "ИЗДЕРЖКИ", icon: "📊", delay: "2s" },
+                    { label: "РЕИНВЕСТ", icon: "♻️", delay: "2.5s" },
+                  ].map((item, index) => (
+                    <div
+                      key={index}
+                      className="bg-background/50 backdrop-blur-sm rounded-lg p-3 text-center transition-all duration-300 hover:scale-105 hover:bg-primary/10 animate-fade-in border border-primary/20"
+                      style={{ animationDelay: item.delay }}
+                    >
+                      <div className="text-2xl mb-1">{item.icon}</div>
+                      <div className="text-xs font-semibold text-foreground/80">
+                        {item.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary/5 rounded-full animate-pulse" />
+              </div>
             </div>
           </div>
         </div>
