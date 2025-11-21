@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const navLinks = [
   { href: "#about", label: "О компании" },
   { href: "#how-it-works", label: "Как это работает" },
@@ -51,19 +53,29 @@ export const Footer = () => {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <Link to="/partner-program" className="hover:text-accent transition-colors">
+                  Партнерская программа
+                </Link>
+              </li>
+              <li>
+                <Link to="/ambassador-club" className="hover:text-accent transition-colors">
+                  Клуб Амбассадоров
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms-of-service" className="hover:text-accent transition-colors">
                   Пользовательское соглашение
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <Link to="/privacy-policy" className="hover:text-accent transition-colors">
                   Политика конфиденциальности
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <Link to="/public-offer" className="hover:text-accent transition-colors">
                   Публичная оферта
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
