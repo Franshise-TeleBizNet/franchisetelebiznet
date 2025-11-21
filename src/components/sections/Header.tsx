@@ -1,58 +1,43 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { href: "#about", label: "О нас" },
-  { href: "#how-it-works", label: "Как работает" },
-  { href: "#franchise-packages", label: "Пакеты" },
-  { href: "#comparison-table-section", label: "Сравнение" },
-  { href: "#testimonials", label: "Отзывы" },
-  { href: "#calculator-section", label: "Калькулятор" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Контакты" },
+  { href: "/#about", label: "О нас" },
+  { href: "/#how-it-works", label: "Как работает" },
+  { href: "/#franchise-packages", label: "Пакеты" },
+  { href: "/#comparison-table-section", label: "Сравнение" },
+  { href: "/#testimonials", label: "Отзывы" },
+  { href: "/#calculator-section", label: "Калькулятор" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/#contact", label: "Контакты" },
 ];
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setMobileMenuOpen(false);
-    }
-  };
 
   return (
     <header className="bg-background/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0">
-            <a
-              href="#main"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("#main");
-              }}
+            <Link
+              to="/"
               className="text-3xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
             >
               TeleBizNet
-            </a>
+            </Link>
           </div>
           <nav className="hidden md:flex space-x-1 items-center">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(item.href);
-                }}
+                to={item.href}
                 className="text-foreground/60 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
           <div className="hidden md:flex items-center space-x-2">
@@ -64,10 +49,10 @@ export const Header = () => {
               +7 936 111-22-77
             </a>
             <Button
-              onClick={() => scrollToSection("#contact")}
+              asChild
               className="bg-primary hover:bg-primary/90 font-semibold"
             >
-              Консультация
+              <Link to="/#contact">Консультация</Link>
             </Button>
           </div>
           <div className="md:hidden">
@@ -89,17 +74,14 @@ export const Header = () => {
         <div className="md:hidden bg-background shadow-lg">
           <nav className="px-2 pt-2 pb-4 space-y-1">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(item.href);
-                }}
+                to={item.href}
+                onClick={() => setMobileMenuOpen(false)}
                 className="block text-foreground/60 hover:bg-secondary hover:text-primary px-3 py-2 rounded-md text-base font-medium transition-colors"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <a
               href="tel:+79361112277"
@@ -108,10 +90,10 @@ export const Header = () => {
               +7 936 111-22-77
             </a>
             <Button
-              onClick={() => scrollToSection("#contact")}
+              asChild
               className="w-full mt-3 bg-primary hover:bg-primary/90"
             >
-              Получить консультацию
+              <Link to="/#contact" onClick={() => setMobileMenuOpen(false)}>Получить консультацию</Link>
             </Button>
           </nav>
         </div>
