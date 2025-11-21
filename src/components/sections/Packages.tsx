@@ -130,13 +130,13 @@ export const Packages = () => {
             </h4>
             <p className="text-muted-foreground text-sm">
               Независимо от выбранного пакета, вы получаете доступ к нашей{" "}
-              <span className="font-semibold text-primary">
-                Партнерской Программе
+              <span <Link to="/partner-program" className="hover:text-accent transition-colors">
+                  Партнерской программе
+                </Link>
               </span>{" "}
               (конвертируйте контакты в капитал) и{" "}
-              <span className="font-semibold text-primary">
-                Клубу Амбассадоров
-              </span>{" "}
+              <Link to="/ambassador-club" className="hover:text-accent transition-colors">
+                  Клубу Амбассадоров{" "}
               (особые условия для блогеров с аудиторией от 100 000).
             </p>
           </CardContent>
