@@ -9,6 +9,7 @@ import PartnerProgram from "./pages/PartnerProgram";
 import AmbassadorClub from "./pages/AmbassadorClub";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import PersonalDataPolicy from "./pages/PersonalDataPolicy";
 import PublicOffer from "./pages/PublicOffer";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/ambassador-club" element={<AmbassadorClub />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/personal-data-policy" element={<PersonalDataPolicy />} />
           <Route path="/public-offer" element={<PublicOffer />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
