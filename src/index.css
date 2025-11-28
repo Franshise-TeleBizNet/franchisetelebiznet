@@ -72,33 +72,36 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 260 50% 8%;
-    --foreground: 210 40% 98%;
+    --background: 210 100% 5%;
+    --foreground: 200 20% 95%;
 
-    --card: 260 45% 10%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 50% 10%;
+    --card-foreground: 200 20% 95%;
 
-    --popover: 260 45% 10%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 50% 12%;
+    --popover-foreground: 200 20% 95%;
 
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 260 50% 8%;
+    --primary: 200 100% 50%;
+    --primary-foreground: 210 100% 5%;
 
-    --secondary: 260 40% 15%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 40% 20%;
+    --secondary-foreground: 200 20% 95%;
 
-    --muted: 260 40% 15%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 40% 20%;
+    --muted-foreground: 200 15% 65%;
 
-    --accent: 173 80% 40%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 190 100% 45%;
+    --accent-foreground: 210 100% 5%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 200 20% 95%;
 
-    --border: 260 35% 20%;
-    --input: 260 35% 20%;
-    --ring: 217.2 91.2% 59.8%;
+    --border: 200 50% 25%;
+    --input: 200 50% 25%;
+    --ring: 200 100% 50%;
+    
+    --glass-bg: 210 50% 15%;
+    --glass-border: 200 60% 40%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -121,6 +124,19 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  /* Glass morphism effects */
+  .glass {
+    @apply bg-card/40 backdrop-blur-xl border border-border/50;
+  }
+  
+  .glass-strong {
+    @apply bg-card/60 backdrop-blur-2xl border border-border/70;
+  }
+  
+  .glass-light {
+    @apply bg-card/20 backdrop-blur-md border border-border/30;
+  }
+  
   /* Interactive link styles */
   .link-hover {
     @apply relative inline-block transition-colors duration-200 hover:text-primary;
@@ -136,7 +152,7 @@ All colors MUST be HSL.
   }
   
   .card-lift {
-    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:shadow-primary/20;
   }
   
   .card-scale {
@@ -149,7 +165,7 @@ All colors MUST be HSL.
   }
   
   .button-glow {
-    @apply transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)];
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.6)];
   }
   
   .button-scale {
