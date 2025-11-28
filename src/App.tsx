@@ -20,8 +20,8 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <ConsentModal />
       <BrowserRouter>
+        <ConsentModal />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/partner-program" element={<PartnerProgram />} />
