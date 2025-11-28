@@ -32,33 +32,6 @@ const Index = () => {
     }
   }, [location]);
 
-  useEffect(() => {
-    const sections = document.querySelectorAll<HTMLElement>("section[id]");
-    
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in");
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    sections.forEach((section) => {
-      section.style.opacity = "0";
-      section.style.transform = "translateY(20px)";
-      observer.observe(section);
-    });
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
-  }, []);
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
