@@ -64,6 +64,11 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/personal-data-policy" className="hover:text-accent transition-colors">
+                  Политика обработки персональных данных
+                </Link>
+              </li>
+              <li>
                 <Link to="/public-offer" className="hover:text-accent transition-colors">
                   Публичная оферта
                 </Link>
