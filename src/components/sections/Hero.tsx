@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, TrendingUp, Clock, Shield } from "lucide-react";
+import { FluidGradient } from "@/components/ui/fluid-gradient";
 
 const features = [
   { icon: CheckCircle2, text: "Готовый бизнес" },
@@ -18,8 +19,7 @@ export const Hero = () => {
 
   return (
     <section className="relative overflow-hidden pt-24 pb-20 md:pt-32 md:pb-28">
-      <div className="absolute inset-0 bg-[image:var(--hero-gradient)] opacity-100" />
-      <div className="absolute inset-0 bg-grid-white/10" />
+      <FluidGradient />
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span className="inline-block text-sm font-semibold uppercase tracking-wider bg-white/20 text-white px-3 py-1 rounded-full mb-4 backdrop-blur-sm">
           TeleBizNet: Телекоммуникационная Бизнес Сеть
