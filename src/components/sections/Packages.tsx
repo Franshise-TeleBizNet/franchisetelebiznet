@@ -4,7 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 
 const packages = [
   {
-    name: "Активный Старт",
+    name: "Старт Актив",
     subtitle: "Для тех, кто хочет максимально участвовать",
     price: "от 900 тыс ₽",
     features: [
