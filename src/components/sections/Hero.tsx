@@ -18,7 +18,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden pt-24 pb-20 md:pt-32 md:pb-28">
+    <section className="relative overflow-hidden min-h-screen flex items-center">
       <FluidGradient />
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span className="inline-block text-sm font-semibold uppercase tracking-wider bg-white/20 text-white px-3 py-1 rounded-full mb-4 backdrop-blur-sm">
