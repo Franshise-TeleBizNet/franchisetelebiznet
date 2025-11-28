@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { useActiveSection } from "@/hooks/use-active-section";
 import { cn } from "@/lib/utils";
@@ -19,6 +20,7 @@ const navItems = [
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const activeSection = useActiveSection();
+  const { theme, setTheme } = useTheme();
 
   return (
     <header className="bg-background/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
@@ -53,6 +55,17 @@ export const Header = () => {
             })}
           </nav>
           <div className="hidden md:flex items-center space-x-2">
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="p-2 rounded-md text-foreground/70 hover:text-primary hover:bg-secondary transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
+            </button>
             <a
               href="tel:+79361112277"
               className="text-sm font-medium text-foreground/70 hover:text-primary flex items-center transition-colors"
@@ -104,6 +117,22 @@ export const Header = () => {
                 </Link>
               );
             })}
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="flex items-center w-full text-foreground/60 hover:bg-secondary hover:text-primary px-3 py-2 rounded-md text-base font-medium mt-2 transition-colors"
+            >
+              {theme === "dark" ? (
+                <>
+                  <Sun className="w-5 h-5 mr-2" />
+                  Светлая тема
+                </>
+              ) : (
+                <>
+                  <Moon className="w-5 h-5 mr-2" />
+                  Темная тема
+                </>
+              )}
+            </button>
             <a
               href="tel:+79361112277"
               className="block text-foreground/60 hover:bg-secondary hover:text-primary px-3 py-2 rounded-md text-base font-medium mt-2 transition-colors"
