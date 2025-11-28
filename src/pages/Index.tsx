@@ -14,6 +14,7 @@ import { LongTermProspects } from "@/components/sections/LongTermProspects";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
+import { BackToTop } from "@/components/BackToTop";
 
 const Index = () => {
   const location = useLocation();
@@ -30,6 +31,33 @@ const Index = () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [location]);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll<HTMLElement>("section[id]");
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-in");
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    sections.forEach((section) => {
+      section.style.opacity = "0";
+      section.style.transform = "translateY(20px)";
+      observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -49,6 +77,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

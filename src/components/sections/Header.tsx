@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useActiveSection } from "@/hooks/use-active-section";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/#about", label: "О нас" },
@@ -16,6 +18,7 @@ const navItems = [
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const activeSection = useActiveSection();
 
   return (
     <header className="bg-background/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
@@ -30,15 +33,24 @@ export const Header = () => {
             </Link>
           </div>
           <nav className="hidden md:flex space-x-1 items-center">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className="text-foreground/60 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const sectionId = item.href.split('#')[1];
+              const isActive = activeSection === sectionId;
+              return (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className={cn(
+                    "px-3 py-2 rounded-md text-sm font-medium transition-colors relative",
+                    isActive
+                      ? "text-primary font-semibold after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1/2 after:h-0.5 after:bg-primary after:rounded-full"
+                      : "text-foreground/60 hover:text-primary"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
           <div className="hidden md:flex items-center space-x-2">
             <a
@@ -73,16 +85,25 @@ export const Header = () => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-background shadow-lg">
           <nav className="px-2 pt-2 pb-4 space-y-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-foreground/60 hover:bg-secondary hover:text-primary px-3 py-2 rounded-md text-base font-medium transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const sectionId = item.href.split('#')[1];
+              const isActive = activeSection === sectionId;
+              return (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={cn(
+                    "block px-3 py-2 rounded-md text-base font-medium transition-colors",
+                    isActive
+                      ? "bg-secondary text-primary font-semibold"
+                      : "text-foreground/60 hover:bg-secondary hover:text-primary"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
             <a
               href="tel:+79361112277"
               className="block text-foreground/60 hover:bg-secondary hover:text-primary px-3 py-2 rounded-md text-base font-medium mt-2 transition-colors"
