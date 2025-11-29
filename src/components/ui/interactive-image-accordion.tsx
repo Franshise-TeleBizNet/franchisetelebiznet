@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 interface AccordionItemData {
   id: number;
@@ -57,18 +57,20 @@ interface AccordionItemProps {
   item: AccordionItemData;
   isActive: boolean;
   onMouseEnter: () => void;
+  onClick: () => void;
 }
 
-const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEnter }) => {
+const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEnter, onClick }) => {
   return (
     <div
       className={`
         relative rounded-2xl overflow-hidden cursor-pointer
         transition-all duration-700 ease-in-out
         md:h-[450px] md:${isActive ? 'w-[400px]' : 'w-[70px]'}
-        h-[70px] ${isActive ? 'w-full' : 'w-full'}
+        ${isActive ? 'h-auto min-h-[180px]' : 'h-[70px]'} w-full
       `}
       onMouseEnter={onMouseEnter}
+      onClick={onClick}
     >
       {/* Gradient Background */}
       <div className={`absolute inset-0 bg-gradient-to-br ${item.colorClass}`}></div>
@@ -115,13 +117,58 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEn
 
 export function InteractiveImageAccordion() {
   const [activeIndex, setActiveIndex] = useState(2);
+  const [isMobile, setIsMobile] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      if (mobile) {
+        setActiveIndex(-1); // Collapse all on mobile initially
+      } else {
+        setActiveIndex(2); // Default to index 2 on desktop
+      }
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      
+      const rect = sectionRef.current.getBoundingClientRect();
+      const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+      
+      // If scrolled outside the section, collapse all
+      if (!isInView) {
+        setActiveIndex(-1);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isMobile]);
 
   const handleItemHover = (index: number) => {
-    setActiveIndex(index);
+    if (!isMobile) {
+      setActiveIndex(index);
+    }
+  };
+
+  const handleItemClick = (index: number) => {
+    if (isMobile) {
+      setActiveIndex(activeIndex === index ? -1 : index);
+    }
   };
 
   return (
-    <div className="w-full flex items-center justify-center overflow-hidden">
+    <div ref={sectionRef} className="w-full flex items-center justify-center overflow-hidden">
       <div className="flex md:flex-row flex-col items-center justify-center gap-4 md:overflow-x-auto overflow-visible p-4 w-full md:w-auto">
         {accordionItems.map((item, index) => (
           <AccordionItem
@@ -129,6 +176,7 @@ export function InteractiveImageAccordion() {
             item={item}
             isActive={index === activeIndex}
             onMouseEnter={() => handleItemHover(index)}
+            onClick={() => handleItemClick(index)}
           />
         ))}
       </div>
