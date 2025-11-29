@@ -5,7 +5,7 @@ export const ComparisonTable = () => {
   return (
     <section
       id="comparison-table-section"
-      className="py-16 md:py-24 bg-background"
+      className="py-16 md:py-24 bg-muted/30"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4">
