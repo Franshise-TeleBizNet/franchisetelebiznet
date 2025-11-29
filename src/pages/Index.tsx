@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+<LongTermProspects />import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
@@ -46,8 +46,8 @@ const Index = () => {
         <Calculator />
         <Packages />
         <ComparisonTable />
-        <Testimonials />
         <LongTermProspects />
+        <Testimonials />
         <FAQ />
         <Contact />
       </main>
