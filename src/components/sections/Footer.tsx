@@ -44,16 +44,6 @@ export const Footer = () => {
             <h3 className="text-lg font-semibold text-white mb-4">Правовая информация</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/partner-program" className="hover:text-accent transition-colors">
-                  Партнерская программа
-                </Link>
-              </li>
-              <li>
-                <Link to="/ambassador-club" className="hover:text-accent transition-colors">
-                  Клуб Амбассадоров
-                </Link>
-              </li>
-              <li>
                 <Link to="/terms-of-service" className="hover:text-accent transition-colors">
                   Пользовательское соглашение
                 </Link>
@@ -76,6 +66,21 @@ export const Footer = () => {
               <li>
                 <Link to="/consent-management" className="hover:text-accent transition-colors">
                   Управление согласиями
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">Партнерам</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/partner-program" className="hover:text-accent transition-colors">
+                  Партнерская программа
+                </Link>
+              </li>
+              <li>
+                <Link to="/ambassador-club" className="hover:text-accent transition-colors">
+                  Клуб Амбассадоров
                 </Link>
               </li>
             </ul>

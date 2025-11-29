@@ -68,15 +68,15 @@ export const ConsentModal = () => {
   return (
     <Dialog open={isOpen} onOpenChange={() => {}}>
       <DialogContent 
-        className="max-w-2xl glass-strong border-2 border-border/50 shadow-2xl max-h-[90vh] overflow-y-auto"
+        className="max-w-2xl glass-strong border-2 border-border/50 shadow-2xl max-h-[90vh] overflow-y-auto sm:max-w-[95vw] mx-4"
         onPointerDownOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => e.preventDefault()}
       >
-        <DialogHeader className="space-y-4">
-          <DialogTitle className="text-2xl font-bold text-center">
+        <DialogHeader className="space-y-3 sm:space-y-4">
+          <DialogTitle className="text-xl sm:text-2xl font-bold text-center px-2">
             Мы ценим вашу конфиденциальность и безопасность данных
           </DialogTitle>
-          <DialogDescription className="text-base text-foreground/90 leading-relaxed">
+          <DialogDescription className="text-sm sm:text-base text-foreground/90 leading-relaxed px-2">
             Добро пожаловать на сайт Франшизы TeleBizNet (ТелеБизНет). Для корректной работы сайта, 
             анализа трафика и предоставления вам информации о нашей франшизе мы используем файлы cookie 
             и обрабатываем ваши персональные данные.
@@ -86,93 +86,93 @@ export const ConsentModal = () => {
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-6 mt-6">
+        <div className="space-y-4 sm:space-y-6 mt-4 sm:mt-6 px-2">
           {/* Required: Cookies */}
-          <div className="flex items-start space-x-3 glass-light p-4 rounded-lg">
+          <div className="flex items-start space-x-2 sm:space-x-3 glass-light p-3 sm:p-4 rounded-lg">
             <Checkbox
               id="cookies"
               checked={cookiesAccepted}
               onCheckedChange={(checked) => setCookiesAccepted(checked === true)}
-              className="mt-1"
+              className="mt-1 flex-shrink-0"
             />
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <Label 
                 htmlFor="cookies" 
-                className="text-base font-semibold cursor-pointer flex items-center gap-2"
+                className="text-sm sm:text-base font-semibold cursor-pointer flex flex-wrap items-center gap-1 sm:gap-2"
               >
-                Я согласен с использованием файлов Cookie
-                <span className="text-xs font-normal text-destructive">
+                <span className="break-words">Я согласен с использованием файлов Cookie</span>
+                <span className="text-xs font-normal text-destructive whitespace-nowrap">
                   (Обязательный)
                 </span>
               </Label>
-              <p className="text-sm text-muted-foreground mt-2">
+              <p className="text-xs sm:text-sm text-muted-foreground mt-2 break-words">
                 Необходимы для технической работы сайта и сбора обезличенной статистики посещаемости.
               </p>
             </div>
           </div>
 
           {/* Required: Privacy Policy */}
-          <div className="flex items-start space-x-3 glass-light p-4 rounded-lg">
+          <div className="flex items-start space-x-2 sm:space-x-3 glass-light p-3 sm:p-4 rounded-lg">
             <Checkbox
               id="privacy"
               checked={privacyAccepted}
               onCheckedChange={(checked) => setPrivacyAccepted(checked === true)}
-              className="mt-1"
+              className="mt-1 flex-shrink-0"
             />
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <Label 
                 htmlFor="privacy" 
-                className="text-base font-semibold cursor-pointer flex items-center gap-2"
+                className="text-sm sm:text-base font-semibold cursor-pointer flex flex-wrap items-center gap-1 sm:gap-2"
               >
-                Я ознакомился и принимаю{" "}
+                <span className="break-words">Я ознакомился и принимаю{" "}</span>
                 <Link 
                   to="/personal-data-policy" 
-                  className="text-primary hover:underline"
+                  className="text-primary hover:underline break-words"
                   target="_blank"
                 >
                   Политику обработки персональных данных
                 </Link>
-                <span className="text-xs font-normal text-destructive">
+                <span className="text-xs font-normal text-destructive whitespace-nowrap">
                   (Обязательный)
                 </span>
               </Label>
-              <p className="text-sm text-muted-foreground mt-2">
+              <p className="text-xs sm:text-sm text-muted-foreground mt-2 break-words">
                 Подтверждаю свое согласие на обработку технических данных о моем визите (IP, гео-локация).
               </p>
             </div>
           </div>
 
           {/* Optional: Marketing */}
-          <div className="flex items-start space-x-3 glass-light p-4 rounded-lg">
+          <div className="flex items-start space-x-2 sm:space-x-3 glass-light p-3 sm:p-4 rounded-lg">
             <Checkbox
               id="marketing"
               checked={marketingAccepted}
               onCheckedChange={(checked) => setMarketingAccepted(checked === true)}
-              className="mt-1"
+              className="mt-1 flex-shrink-0"
             />
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <Label 
                 htmlFor="marketing" 
-                className="text-base font-semibold cursor-pointer flex items-center gap-2"
+                className="text-sm sm:text-base font-semibold cursor-pointer flex flex-wrap items-center gap-1 sm:gap-2"
               >
-                Я согласен на получение персонализированных предложений
-                <span className="text-xs font-normal text-muted-foreground">
+                <span className="break-words">Я согласен на получение персонализированных предложений</span>
+                <span className="text-xs font-normal text-muted-foreground whitespace-nowrap">
                   (Опциональный)
                 </span>
               </Label>
-              <p className="text-sm text-muted-foreground mt-2">
+              <p className="text-xs sm:text-sm text-muted-foreground mt-2 break-words">
                 Разрешаю использовать данные моего визита для показа мне релевантной рекламы франшизы (ретаргетинг).
               </p>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 flex justify-center">
+        <div className="mt-6 sm:mt-8 flex justify-center px-2">
           <Button
             onClick={handleContinue}
             disabled={!isButtonEnabled}
             size="lg"
-            className="px-8"
+            className="px-6 sm:px-8 w-full sm:w-auto text-sm sm:text-base"
           >
             Продолжить работу с сайтом
           </Button>
