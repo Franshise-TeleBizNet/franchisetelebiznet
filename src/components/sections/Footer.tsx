@@ -70,34 +70,36 @@ export const Footer = () => {
               </li>
             </ul>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Партнерам</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/partner-program" className="hover:text-accent transition-colors">
-                  Партнерская программа
-                </Link>
-              </li>
-              <li>
-                <Link to="/ambassador-club" className="hover:text-accent transition-colors">
-                  Клуб Амбассадоров
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Контакты</h3>
-            <p className="text-sm mb-2">ТелеБизНет</p>
-            <p className="text-sm mb-2">
-              <a href="tel:+79361112277" className="hover:text-accent font-semibold transition-colors">
-                +7 936 111-22-77
-              </a>
-            </p>
-            <p className="text-sm">
-              <a href="mailto:serge.purt@gmail.com" className="hover:text-accent transition-colors">
-                serge.purt@gmail.com
-              </a>
-            </p>
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Партнерам</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link to="/partner-program" className="hover:text-accent transition-colors">
+                    Партнерская программа
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/ambassador-club" className="hover:text-accent transition-colors">
+                    Клуб Амбассадоров
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Контакты</h3>
+              <p className="text-sm mb-2">ТелеБизНет</p>
+              <p className="text-sm mb-2">
+                <a href="tel:+79361112277" className="hover:text-accent font-semibold transition-colors">
+                  +7 936 111-22-77
+                </a>
+              </p>
+              <p className="text-sm">
+                <a href="mailto:serge.purt@gmail.com" className="hover:text-accent transition-colors">
+                  serge.purt@gmail.com
+                </a>
+              </p>
+            </div>
           </div>
         </div>
         <div className="border-t border-gray-700 pt-8 text-center text-sm">
