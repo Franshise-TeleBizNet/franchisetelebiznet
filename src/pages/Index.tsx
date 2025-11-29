@@ -38,12 +38,12 @@ const Index = () => {
       <Header />
       <main id="main">
         <Hero />
-      <About />
-      <WhyUs />
-      <Comparison />
-      <Quiz />
-        <Packages />
+        <About />
+        <WhyUs />
+        <Comparison />
+        <Quiz />
         <HowItWorks />
+        <Packages />
         <ComparisonTable />
         <Calculator />
         <Testimonials />
