@@ -11,8 +11,8 @@ const navItems = [
   { href: "/#how-it-works", label: "Как работает" },
   { href: "/#franchise-packages", label: "Пакеты" },
   { href: "/#comparison-table-section", label: "Сравнение" },
-  { href: "/#testimonials", label: "Отзывы" },
   { href: "/#calculator-section", label: "Калькулятор" },
+  { href: "/#testimonials", label: "Отзывы" },
   { href: "/#faq", label: "FAQ" },
   { href: "/#contact", label: "Контакты" },
 ];
@@ -36,7 +36,7 @@ export const Header = () => {
           </div>
           <nav className="hidden md:flex space-x-1 items-center">
             {navItems.map((item) => {
-              const sectionId = item.href.split('#')[1];
+              const sectionId = item.href.split("#")[1];
               const isActive = activeSection === sectionId;
               return (
                 <Link
@@ -46,7 +46,7 @@ export const Header = () => {
                     "px-3 py-2 rounded-md text-sm font-medium transition-colors relative",
                     isActive
                       ? "text-primary font-semibold after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1/2 after:h-0.5 after:bg-primary after:rounded-full"
-                      : "text-foreground/60 hover:text-primary"
+                      : "text-foreground/60 hover:text-primary",
                   )}
                 >
                   {item.label}
@@ -60,11 +60,7 @@ export const Header = () => {
               className="p-2 rounded-md text-foreground/70 hover:text-primary hover:bg-secondary transition-colors"
               aria-label="Toggle theme"
             >
-              {theme === "dark" ? (
-                <Sun className="w-5 h-5" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
+              {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
             <a
               href="tel:+79361112277"
@@ -73,10 +69,7 @@ export const Header = () => {
               <Phone className="w-5 h-5 mr-1" />
               +7 936 111-22-77
             </a>
-            <Button
-              asChild
-              className="bg-primary hover:bg-primary/90 font-semibold"
-            >
+            <Button asChild className="bg-primary hover:bg-primary/90 font-semibold">
               <Link to="/#contact">Консультация</Link>
             </Button>
           </div>
@@ -86,11 +79,7 @@ export const Header = () => {
               className="text-foreground/60 hover:text-primary focus:outline-none"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? (
-                <X className="w-7 h-7" />
-              ) : (
-                <Menu className="w-7 h-7" />
-              )}
+              {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
             </button>
           </div>
         </div>
@@ -99,7 +88,7 @@ export const Header = () => {
         <div className="md:hidden bg-background shadow-lg">
           <nav className="px-2 pt-2 pb-4 space-y-1">
             {navItems.map((item) => {
-              const sectionId = item.href.split('#')[1];
+              const sectionId = item.href.split("#")[1];
               const isActive = activeSection === sectionId;
               return (
                 <Link
@@ -110,7 +99,7 @@ export const Header = () => {
                     "block px-3 py-2 rounded-md text-base font-medium transition-colors",
                     isActive
                       ? "bg-secondary text-primary font-semibold"
-                      : "text-foreground/60 hover:bg-secondary hover:text-primary"
+                      : "text-foreground/60 hover:bg-secondary hover:text-primary",
                   )}
                 >
                   {item.label}
@@ -139,11 +128,10 @@ export const Header = () => {
             >
               +7 936 111-22-77
             </a>
-            <Button
-              asChild
-              className="w-full mt-3 bg-primary hover:bg-primary/90"
-            >
-              <Link to="/#contact" onClick={() => setMobileMenuOpen(false)}>Получить консультацию</Link>
+            <Button asChild className="w-full mt-3 bg-primary hover:bg-primary/90">
+              <Link to="/#contact" onClick={() => setMobileMenuOpen(false)}>
+                Получить консультацию
+              </Link>
             </Button>
           </nav>
         </div>
