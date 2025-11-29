@@ -39,8 +39,8 @@ export const Hero = () => {
           <br className="hidden md:inline" /> и обретите финансовую свободу
         </h1>
         <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-          Готовая франшиза медиаканалов, которая работает на вас 24/7. Минимум
-          усилий, максимум результата. Начните путь к стабильному будущему уже
+          Готовая франшиза медиаканалов, которая работает на вас 24/7.</br>Минимум
+          усилий, максимум результата.</br>Начните путь к стабильному будущему уже
           сегодня!
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
