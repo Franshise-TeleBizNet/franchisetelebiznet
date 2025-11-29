@@ -1,4 +1,4 @@
-<LongTermProspects />import { useEffect } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
