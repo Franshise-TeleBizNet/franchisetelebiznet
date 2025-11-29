@@ -20,28 +20,22 @@ export const Hero = () => {
   return (
     <section className="relative overflow-hidden pt-24 pb-20 md:pt-32 md:pb-28">
       <div className="absolute inset-0">
-        <Iridescence
-          color={[0.3, 0.3, 1]}
-          mouseReact={false}
-          amplitude={0.1}
-          speed={1.0}
-        />
+        <Iridescence color={[0.3, 0.3, 1]} mouseReact={false} amplitude={0.1} speed={1.0} />
       </div>
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span className="inline-block text-sm font-semibold uppercase tracking-wider bg-white/20 text-white px-3 py-1 rounded-full mb-4 backdrop-blur-sm">
           TeleBizNet: Телекоммуникационная Бизнес Сеть
         </span>
         <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-white animate-in fade-in slide-in-from-bottom-4 duration-700">
-          Создайте свой{" "}
-          <span className="underline decoration-accent decoration-4">
-            пассивный доход
-          </span>
+          Создайте свой <span className="underline decoration-accent decoration-4">пассивный доход</span>
           <br className="hidden md:inline" /> и обретите финансовую свободу
         </h1>
         <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-          Готовая франшиза медиаканалов, которая работает на вас 24/7.</br>Минимум
-          усилий, максимум результата.</br>Начните путь к стабильному будущему уже
-          сегодня!
+          Готовая франшиза медиаканалов, которая работает на вас 24/7.
+          <br />
+          Минимум усилий, максимум результата.
+          <br />
+          Начните путь к стабильному будущему уже сегодня!
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
           {features.map((feature, index) => (
@@ -50,9 +44,7 @@ export const Hero = () => {
               className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm p-3 rounded-lg hover:bg-white/20 transition-colors"
             >
               <feature.icon className="w-6 h-6 text-accent" />
-              <span className="text-sm font-medium text-white">
-                {feature.text}
-              </span>
+              <span className="text-sm font-medium text-white">{feature.text}</span>
             </div>
           ))}
         </div>
