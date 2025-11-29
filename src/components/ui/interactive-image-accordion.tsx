@@ -63,9 +63,10 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEn
   return (
     <div
       className={`
-        relative h-[450px] rounded-2xl overflow-hidden cursor-pointer
+        relative rounded-2xl overflow-hidden cursor-pointer
         transition-all duration-700 ease-in-out
-        ${isActive ? 'w-[400px]' : 'w-[70px]'}
+        md:h-[450px] md:${isActive ? 'w-[400px]' : 'w-[70px]'}
+        h-[70px] ${isActive ? 'w-full' : 'w-full'}
       `}
       onMouseEnter={onMouseEnter}
     >
@@ -76,7 +77,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEn
       <div className="absolute inset-0 glass-light"></div>
 
       {/* Content */}
-      <div className="relative h-full flex flex-col items-center justify-center p-6">
+      <div className="relative h-full flex flex-col md:flex-col items-center justify-center p-6 md:p-6 p-4">
         {/* Letter (always visible on spine) */}
         <span
           className={`
@@ -84,8 +85,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEn
             transition-all duration-300 ease-in-out
             ${
               isActive
-                ? 'top-8 left-1/2 -translate-x-1/2 rotate-0 opacity-100'
-                : 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-0 opacity-100'
+                ? 'md:top-8 md:left-1/2 md:-translate-x-1/2 md:rotate-0 left-8 top-1/2 -translate-y-1/2 rotate-0 opacity-100'
+                : 'md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rotate-0 left-8 top-1/2 -translate-y-1/2 rotate-0 opacity-100'
             }
           `}
         >
@@ -95,16 +96,17 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEn
         {/* Expanded content */}
         <div
           className={`
-            transition-all duration-500 ease-in-out text-white text-center
+            transition-all duration-500 ease-in-out text-white
+            md:text-center text-left md:pl-0 pl-16
             ${
               isActive
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-4 pointer-events-none'
+                ? 'opacity-100 md:translate-y-0 translate-x-0'
+                : 'opacity-0 md:translate-y-4 translate-x-4 pointer-events-none'
             }
           `}
         >
-          <h3 className="text-xl font-bold mb-4 mt-12">{item.title}</h3>
-          <p className="text-sm leading-relaxed">{item.description}</p>
+          <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-4 md:mt-12 mt-0">{item.title}</h3>
+          <p className="text-xs md:text-sm leading-relaxed">{item.description}</p>
         </div>
       </div>
     </div>
@@ -119,8 +121,8 @@ export function InteractiveImageAccordion() {
   };
 
   return (
-    <div className="w-full flex items-center justify-center">
-      <div className="flex flex-row items-center justify-center gap-4 overflow-x-auto p-4">
+    <div className="w-full flex items-center justify-center overflow-hidden">
+      <div className="flex md:flex-row flex-col items-center justify-center gap-4 md:overflow-x-auto overflow-visible p-4 w-full md:w-auto">
         {accordionItems.map((item, index) => (
           <AccordionItem
             key={item.id}

@@ -10,6 +10,7 @@ import { ComparisonTable } from "@/components/sections/ComparisonTable";
 import { Calculator } from "@/components/sections/Calculator";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { WhyUs } from "@/components/sections/WhyUs";
+import { Comparison } from "@/components/sections/Comparison";
 import { LongTermProspects } from "@/components/sections/LongTermProspects";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
@@ -37,9 +38,10 @@ const Index = () => {
       <Header />
       <main id="main">
         <Hero />
-        <About />
-        <WhyUs />
-        <Quiz />
+      <About />
+      <WhyUs />
+      <Comparison />
+      <Quiz />
         <Packages />
         <HowItWorks />
         <ComparisonTable />

@@ -10,7 +10,7 @@ const navItems = [
   { href: "/#about", label: "О нас" },
   { href: "/#how-it-works", label: "Как работает" },
   { href: "/#franchise-packages", label: "Пакеты" },
-  { href: "/#comparison-table-section", label: "Сравнение" },
+  { href: "/#comparison", label: "Сравнение" },
   { href: "/#calculator-section", label: "Калькулятор" },
   { href: "/#testimonials", label: "Отзывы" },
   { href: "/#faq", label: "FAQ" },

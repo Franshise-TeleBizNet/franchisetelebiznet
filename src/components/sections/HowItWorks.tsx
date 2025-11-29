@@ -19,7 +19,7 @@ const toDo = [
 export const HowItWorks = () => {
   return (
     <section id="how-it-works" className="py-16 md:py-24 bg-background/50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
         <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4">
           Как это{" "}
           <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -32,34 +32,34 @@ export const HowItWorks = () => {
           технологию КАПРИЗ. Вы получаете готовый бизнес, а 99% операционной
           работы делаем мы. Ваше участие – всего 1-2 часа в неделю!
         </p>
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 max-w-6xl mx-auto">
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold mb-4 text-destructive flex items-center gap-2">
-                <X className="w-7 h-7" />
-                Что НЕ придется делать:
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 max-w-6xl mx-auto overflow-hidden">
+          <div className="space-y-8 overflow-hidden">
+            <div className="overflow-hidden">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 text-destructive flex items-center gap-2 flex-wrap">
+                <X className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0" />
+                <span className="break-words">Что НЕ придется делать:</span>
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-3 overflow-hidden">
                 {notToDo.map((item, index) => (
-                  <li key={index} className="flex items-start gap-2">
+                  <li key={index} className="flex items-start gap-2 overflow-hidden">
                     <CheckCircle2 className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
-                    <span className="text-foreground/80">{item}</span>
+                    <span className="text-foreground/80 break-words">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div>
-              <h3 className="text-2xl font-bold mb-4 text-success flex items-center gap-2">
-                <CheckCircle2 className="w-7 h-7" />
-                Что ДЕЛАЕТЕ ВЫ:
+            <div className="overflow-hidden">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 text-success flex items-center gap-2 flex-wrap">
+                <CheckCircle2 className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0" />
+                <span className="break-words">Что ДЕЛАЕТЕ ВЫ:</span>
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-3 overflow-hidden">
                 {toDo.map((item, index) => (
-                  <li key={index} className="flex items-start gap-2">
+                  <li key={index} className="flex items-start gap-2 overflow-hidden">
                     <span className="text-primary mt-0.5 flex-shrink-0">
                       ▶
                     </span>
-                    <span className="text-foreground/80">{item}</span>
+                    <span className="text-foreground/80 break-words">{item}</span>
                   </li>
                 ))}
               </ul>
