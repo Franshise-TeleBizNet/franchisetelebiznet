@@ -32,48 +32,48 @@ export const HowItWorks = () => {
           технологию КАПРИЗ. Вы получаете готовый бизнес, а 99% операционной
           работы делаем мы. Ваше участие – всего 1-2 часа в неделю!
         </p>
-        
-        {/* Mobile layout: vertical stacking */}
-        <div className="md:hidden space-y-8 overflow-hidden">
-          <div className="overflow-hidden">
-            <h3 className="text-xl md:text-2xl font-bold mb-4 text-destructive flex items-center gap-2 flex-wrap">
-              <X className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0" />
-              <span className="break-words">Что НЕ придется делать:</span>
-            </h3>
-            <ul className="space-y-3 overflow-hidden">
-              {notToDo.map((item, index) => (
-                <li key={index} className="flex items-start gap-2 overflow-hidden">
-                  <CheckCircle2 className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground/80 break-words">{item}</span>
-                </li>
-              ))}
-            </ul>
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 max-w-6xl mx-auto overflow-hidden">
+          <div className="space-y-8 overflow-hidden">
+            <div className="overflow-hidden">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 text-destructive flex items-center gap-2 flex-wrap">
+                <X className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0" />
+                <span className="break-words">Что НЕ придется делать:</span>
+              </h3>
+              <ul className="space-y-3 overflow-hidden">
+                {notToDo.map((item, index) => (
+                  <li key={index} className="flex items-start gap-2 overflow-hidden">
+                    <CheckCircle2 className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
+                    <span className="text-foreground/80 break-words">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="overflow-hidden">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 text-success flex items-center gap-2 flex-wrap">
+                <CheckCircle2 className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0" />
+                <span className="break-words">Что ДЕЛАЕТЕ ВЫ:</span>
+              </h3>
+              <ul className="space-y-3 overflow-hidden">
+                {toDo.map((item, index) => (
+                  <li key={index} className="flex items-start gap-2 overflow-hidden">
+                    <span className="text-primary mt-0.5 flex-shrink-0">
+                      ▶
+                    </span>
+                    <span className="text-foreground/80 break-words">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <Button
+              variant="outline"
+              onClick={() => {
+                const element = document.querySelector("#contact");
+                if (element) element.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Подробнее о бизнес-модели
+            </Button>
           </div>
-          <div className="overflow-hidden">
-            <h3 className="text-xl md:text-2xl font-bold mb-4 text-success flex items-center gap-2 flex-wrap">
-              <CheckCircle2 className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0" />
-              <span className="break-words">Что ДЕЛАЕТЕ ВЫ:</span>
-            </h3>
-            <ul className="space-y-3 overflow-hidden">
-              {toDo.map((item, index) => (
-                <li key={index} className="flex items-start gap-2 overflow-hidden">
-                  <span className="text-primary mt-0.5 flex-shrink-0">
-                    ▶
-                  </span>
-                  <span className="text-foreground/80 break-words">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <Button
-            variant="outline"
-            onClick={() => {
-              const element = document.querySelector("#contact");
-              if (element) element.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Подробнее о бизнес-модели
-          </Button>
           <div className="flex items-center justify-center w-full">
             <div className="w-full">
               <div className="text-center mb-8">
@@ -83,67 +83,6 @@ export const HowItWorks = () => {
                 <p className="text-sm text-muted-foreground mt-2">Технология автоматизации</p>
               </div>
               <InteractiveImageAccordion />
-            </div>
-          </div>
-        </div>
-
-        {/* Desktop layout: КАПРИЗ on top, two columns below */}
-        <div className="hidden md:block max-w-6xl mx-auto overflow-hidden">
-          {/* Top: КАПРИЗ accordion full width */}
-          <div className="mb-12 w-full">
-            <div className="text-center mb-8">
-              <h4 className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                КАПРИЗ
-              </h4>
-              <p className="text-sm text-muted-foreground mt-2">Технология автоматизации</p>
-            </div>
-            <InteractiveImageAccordion />
-          </div>
-
-          {/* Bottom: Two equal columns */}
-          <div className="grid grid-cols-2 gap-10 lg:gap-16">
-            <div className="space-y-8 overflow-hidden">
-              <div className="overflow-hidden">
-                <h3 className="text-xl md:text-2xl font-bold mb-4 text-destructive flex items-center gap-2 flex-wrap">
-                  <X className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0" />
-                  <span className="break-words">Что НЕ придется делать:</span>
-                </h3>
-                <ul className="space-y-3 overflow-hidden">
-                  {notToDo.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2 overflow-hidden">
-                      <CheckCircle2 className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
-                      <span className="text-foreground/80 break-words">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <Button
-                variant="outline"
-                onClick={() => {
-                  const element = document.querySelector("#contact");
-                  if (element) element.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                Подробнее о бизнес-модели
-              </Button>
-            </div>
-            <div className="space-y-8 overflow-hidden">
-              <div className="overflow-hidden">
-                <h3 className="text-xl md:text-2xl font-bold mb-4 text-success flex items-center gap-2 flex-wrap">
-                  <CheckCircle2 className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0" />
-                  <span className="break-words">Что ДЕЛАЕТЕ ВЫ:</span>
-                </h3>
-                <ul className="space-y-3 overflow-hidden">
-                  {toDo.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2 overflow-hidden">
-                      <span className="text-primary mt-0.5 flex-shrink-0">
-                        ▶
-                      </span>
-                      <span className="text-foreground/80 break-words">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
           </div>
         </div>
