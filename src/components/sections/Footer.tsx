@@ -73,6 +73,11 @@ export const Footer = () => {
                   Публичная оферта
                 </Link>
               </li>
+              <li>
+                <Link to="/consent-management" className="hover:text-accent transition-colors">
+                  Управление согласиями
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
