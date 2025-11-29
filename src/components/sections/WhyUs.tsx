@@ -1,5 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Sparkles, Users, Shield, Zap, TrendingUp, Award } from "lucide-react";
+import innovationImg from "@/assets/whyus-innovation.jpg";
+import teamImg from "@/assets/whyus-team.jpg";
+import legalImg from "@/assets/whyus-legal.jpg";
+import automationImg from "@/assets/whyus-automation.jpg";
+import growthImg from "@/assets/whyus-growth.jpg";
+import loyaltyImg from "@/assets/whyus-loyalty.jpg";
 
 const reasons = [
   {
@@ -7,36 +13,42 @@ const reasons = [
     title: "Инновационная digital-модель",
     description:
       "Работа на самых перспективных платформах (Telegram, VK, Дзен и др.) с использованием передовых технологий ИИ и автоматизации.",
+    image: innovationImg,
   },
   {
     icon: Users,
     title: "Экспертная команда",
     description:
       "Профессионалы в маркетинге, продажах и разработке работают на ваш успех ежедневно.",
+    image: teamImg,
   },
   {
     icon: Shield,
     title: "Юридическая защита",
     description:
       "Blockchain, Smart Contracts и полная прозрачность финансов гарантируют безопасность ваших инвестиций.",
+    image: legalImg,
   },
   {
     icon: Zap,
     title: "Полная автоматизация",
     description:
       "ИИ создает контент, команда привлекает аудиторию и продает рекламу - вы просто контролируете процесс.",
+    image: automationImg,
   },
   {
     icon: TrendingUp,
     title: "Растущий рынок",
     description:
       "Digital-реклама растет на 50-70% ежегодно. Мы помогаем вам занять выгодную позицию в этом тренде.",
+    image: growthImg,
   },
   {
     icon: Award,
     title: "100% лояльность",
     description:
       "НИ ОДИН франчайзи не покинул систему! Все работают, развиваются и растут вместе с нами.",
+    image: loyaltyImg,
   },
 ];
 
@@ -72,20 +84,24 @@ export const WhyUs = () => {
           {reasons.map((reason, index) => (
             <Card
               key={index}
-              className="hover:shadow-lg transition-shadow duration-300"
+              className="hover:shadow-lg transition-shadow duration-300 overflow-hidden"
             >
-              <CardContent className="p-6 flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <reason.icon className="w-6 h-6 text-primary" />
-                  </div>
+              <div className="relative h-40 overflow-hidden">
+                <img 
+                  src={reason.image} 
+                  alt={reason.title}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                <div className="absolute bottom-3 left-3 w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center backdrop-blur-sm">
+                  <reason.icon className="w-5 h-5 text-primary" />
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold mb-1">{reason.title}</h3>
-                  <p className="text-sm text-muted-foreground">
-                    {reason.description}
-                  </p>
-                </div>
+              </div>
+              <CardContent className="p-5">
+                <h3 className="text-lg font-bold mb-1">{reason.title}</h3>
+                <p className="text-sm text-muted-foreground">
+                  {reason.description}
+                </p>
               </CardContent>
             </Card>
           ))}
