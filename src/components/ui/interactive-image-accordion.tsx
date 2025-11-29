@@ -116,7 +116,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEn
 };
 
 export function InteractiveImageAccordion() {
-  const [activeIndex, setActiveIndex] = useState(2);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -124,10 +124,8 @@ export function InteractiveImageAccordion() {
     const checkMobile = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      if (mobile) {
-        setActiveIndex(-1); // Collapse all on mobile initially
-      } else {
-        setActiveIndex(2); // Default to index 2 on desktop
+      if (!mobile) {
+        setActiveIndex(-1); // Collapse all on desktop initially
       }
     };
     
@@ -137,8 +135,6 @@ export function InteractiveImageAccordion() {
   }, []);
 
   useEffect(() => {
-    if (!isMobile) return;
-
     const handleScroll = () => {
       if (!sectionRef.current) return;
       
@@ -153,18 +149,10 @@ export function InteractiveImageAccordion() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMobile]);
-
-  const handleItemHover = (index: number) => {
-    if (!isMobile) {
-      setActiveIndex(index);
-    }
-  };
+  }, []);
 
   const handleItemClick = (index: number) => {
-    if (isMobile) {
-      setActiveIndex(activeIndex === index ? -1 : index);
-    }
+    setActiveIndex(activeIndex === index ? -1 : index);
   };
 
   return (
@@ -175,7 +163,7 @@ export function InteractiveImageAccordion() {
             key={item.id}
             item={item}
             isActive={index === activeIndex}
-            onMouseEnter={() => handleItemHover(index)}
+            onMouseEnter={() => {}}
             onClick={() => handleItemClick(index)}
           />
         ))}
