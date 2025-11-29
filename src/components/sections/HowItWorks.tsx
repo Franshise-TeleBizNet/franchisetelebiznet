@@ -1,5 +1,6 @@
-import { CheckCircle2, X, FileText, Users, TrendingUp, DollarSign, PieChart, RefreshCcw } from "lucide-react";
+import { CheckCircle2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { InteractiveImageAccordion } from "@/components/ui/interactive-image-accordion";
 
 const notToDo = [
   "Самостоятельно создавать контент и следить за трендами – это делает наш ИИ и контент-отдел.",
@@ -73,42 +74,15 @@ export const HowItWorks = () => {
               Подробнее о бизнес-модели
             </Button>
           </div>
-          <div className="flex items-center justify-center">
-            <div className="w-full max-w-md aspect-square bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10 rounded-xl p-8 relative overflow-hidden">
-              <div className="absolute inset-0 bg-grid-white/5" />
-              <div className="relative h-full flex flex-col items-center justify-center space-y-6">
-                <div className="text-center mb-4">
-                  <h4 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    КАПРИЗ
-                  </h4>
-                  <p className="text-xs text-muted-foreground mt-1">Технология автоматизации</p>
-                </div>
-                <div className="grid grid-cols-2 gap-4 w-full">
-                  {[
-                    { label: "КОНТЕНТ", Icon: FileText, delay: "0s", color: "text-blue-400" },
-                    { label: "АУДИТОРИЯ", Icon: Users, delay: "0.5s", color: "text-purple-400" },
-                    { label: "ПРОДАЖИ", Icon: TrendingUp, delay: "1s", color: "text-green-400" },
-                    { label: "ЗАРАБОТОК", Icon: DollarSign, delay: "1.5s", color: "text-yellow-400" },
-                    { label: "ИЗДЕРЖКИ", Icon: PieChart, delay: "2s", color: "text-orange-400" },
-                    { label: "РЕИНВЕСТ", Icon: RefreshCcw, delay: "2.5s", color: "text-cyan-400" },
-                  ].map((item, index) => {
-                    const IconComponent = item.Icon;
-                    return (
-                      <div
-                        key={index}
-                        className="bg-background/50 backdrop-blur-sm rounded-lg p-3 text-center transition-all duration-300 hover:scale-105 hover:bg-primary/10 animate-fade-in border border-primary/20"
-                        style={{ animationDelay: item.delay }}
-                      >
-                        <IconComponent className={`w-6 h-6 mx-auto mb-2 ${item.color}`} />
-                        <div className="text-xs font-semibold text-foreground/80">
-                          {item.label}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary/5 rounded-full animate-pulse" />
+          <div className="flex items-center justify-center w-full">
+            <div className="w-full">
+              <div className="text-center mb-8">
+                <h4 className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  КАПРИЗ
+                </h4>
+                <p className="text-sm text-muted-foreground mt-2">Технология автоматизации</p>
               </div>
+              <InteractiveImageAccordion />
             </div>
           </div>
         </div>
