@@ -12,6 +12,7 @@ import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import PersonalDataPolicy from "./pages/PersonalDataPolicy";
 import PublicOffer from "./pages/PublicOffer";
+import ConsentManagement from "./pages/ConsentManagement";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/personal-data-policy" element={<PersonalDataPolicy />} />
           <Route path="/public-offer" element={<PublicOffer />} />
+          <Route path="/consent-management" element={<ConsentManagement />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
