@@ -1,5 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import irinaImg from "@/assets/testimonial-irina.jpg";
+import dmitryImg from "@/assets/testimonial-dmitry.jpg";
+import ivanImg from "@/assets/testimonial-ivan.jpg";
 
 const testimonials = [
   {
@@ -8,6 +12,7 @@ const testimonials = [
     role: "Мама в декрете, ранее бухгалтер",
     quote:
       "Получила наследство, вложила 4 млн ₽ в TeleBizNet (10 каналов). Через 10,5 месяцев вложения вернулись! Пассивный доход более 350 000 ₽/мес. Трачу 15 минут 2-3 раза в неделю на отчеты.",
+    image: irinaImg,
   },
   {
     name: "Дмитрий С.",
@@ -15,6 +20,7 @@ const testimonials = [
     role: "Опытный бизнесмен (ремонтный бизнес)",
     quote:
       "Устал от стресса офлайн-бизнеса. В марте 2024 получил пакет из 15 каналов. Через 8,5 месяцев вложения окупились. Доход ~550 000 ₽/мес. На 30% меньше работы, на 40% больше дохода.",
+    image: dmitryImg,
   },
   {
     name: "Иван Н.",
@@ -22,12 +28,13 @@ const testimonials = [
     role: "Инвестор (ранее криптовалюты)",
     quote:
       "Искал стабильность после криптогорок. Взял пакет из 25 каналов. Окупился за 6,5 месяцев! 25 каналов приносят ~900 000 ₽/мес чистой прибыли. Заказал еще 25.",
+    image: ivanImg,
   },
 ];
 
 export const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-16 md:py-24 bg-background">
+    <section id="testimonials" className="py-16 md:py-24 bg-background/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4">
           Они уже{" "}
@@ -47,16 +54,22 @@ export const Testimonials = () => {
               className="hover:shadow-lg transition-shadow duration-300"
             >
               <CardContent className="p-6">
-                <div className="mb-4">
-                  <h3 className="text-xl font-bold">
-                    {testimonial.name},{" "}
-                    <span className="text-muted-foreground font-medium">
-                      {testimonial.city}
-                    </span>
-                  </h3>
-                  <p className="text-sm text-primary font-semibold">
-                    {testimonial.role}
-                  </p>
+                <div className="flex items-start gap-4 mb-4">
+                  <Avatar className="w-16 h-16 border-2 border-primary/20">
+                    <AvatarImage src={testimonial.image} alt={testimonial.name} />
+                    <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <h3 className="text-xl font-bold">
+                      {testimonial.name},{" "}
+                      <span className="text-muted-foreground font-medium">
+                        {testimonial.city}
+                      </span>
+                    </h3>
+                    <p className="text-sm text-primary font-semibold">
+                      {testimonial.role}
+                    </p>
+                  </div>
                 </div>
                 <blockquote className="text-muted-foreground italic border-l-4 border-primary pl-4 py-2 text-sm">
                   "{testimonial.quote}"

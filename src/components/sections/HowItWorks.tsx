@@ -18,7 +18,7 @@ const toDo = [
 
 export const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-16 md:py-24 bg-background">
+    <section id="how-it-works" className="py-16 md:py-24 bg-background/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4">
           Как это{" "}
