@@ -40,9 +40,9 @@ const Index = () => {
         <Hero />
         <About />
         <WhyUs />
+        <HowItWorks />
         <Comparison />
         <Quiz />
-        <HowItWorks />
         <Calculator />
         <Packages />
         <ComparisonTable />
