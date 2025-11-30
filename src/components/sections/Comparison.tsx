@@ -3,7 +3,7 @@ import { Check, X } from "lucide-react";
 
 const comparisonData = [
   {
-    feature: "Технологии и автоматизация",
+    feature: "ИИ, блокчейн и автоматизация",
     telebiznet: true,
     franchise: false,
     own: false,
