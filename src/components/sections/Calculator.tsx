@@ -80,7 +80,7 @@ export const Calculator = () => {
           </p>
         </div>
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center order-2 lg:order-1">
             <div className="w-full aspect-square max-w-md bg-white/10 backdrop-blur-sm rounded-xl p-6">
               <h4 className="text-white font-semibold mb-4 text-center">
                 Прогноз роста дохода (12 месяцев)
@@ -175,7 +175,7 @@ export const Calculator = () => {
               </div>
             </div>
           </div>
-          <Card>
+          <Card className="order-1 lg:order-2">
             <CardContent className="p-6 sm:p-8">
               <h3 className="text-2xl font-bold text-center mb-6">
                 Рассчитайте ваш{" "}
