@@ -9,25 +9,31 @@ const comparisonData = [
     own: false,
   },
   {
+    feature: "Возможность полностью пассивного дохода",
+    telebiznet: true,
+    franchise: false,
+    own: false,
+  },
+  {
     feature: "Поддержка и обучение",
     telebiznet: true,
     franchise: true,
     own: false,
   },
   {
-    feature: "Масштабируемость",
+    feature: "Быстрая масштабируемость",
     telebiznet: true,
     franchise: false,
     own: false,
   },
   {
-    feature: "Географическая привязка",
+    feature: "Риски физического (офлайн) бизнеса",
     telebiznet: false,
     franchise: true,
     own: true,
   },
   {
-    feature: "Необходимость большого стартового капитала",
+    feature: "Понятный размер стартового капитала",
     telebiznet: false,
     franchise: true,
     own: true,
@@ -56,10 +62,8 @@ export const Comparison = () => {
             другими вариантами
           </span>
         </h2>
-        <p className="text-center text-muted-foreground mb-12">
-          Почему TeleBizNet — лучший выбор для вашего бизнеса
-        </p>
-        
+        <p className="text-center text-muted-foreground mb-12">Почему TeleBizNet — лучший выбор для вашего бизнеса</p>
+
         <Card className="max-w-5xl mx-auto">
           <CardContent className="p-4 sm:p-6">
             <div className="overflow-x-auto">
