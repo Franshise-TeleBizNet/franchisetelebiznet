@@ -33,7 +33,7 @@ const comparisonData = [
     own: false,
   },
   {
-    feature: "Понятный размер стартового капитала",
+    feature: "Понятный размер необходимого капитала",
     telebiznet: true,
     franchise: false,
     own: false,
