@@ -27,16 +27,16 @@ const comparisonData = [
     own: false,
   },
   {
-    feature: "Риски физического (офлайн) бизнеса",
-    telebiznet: false,
-    franchise: true,
-    own: true,
+    feature: "Отсутствие рисков физического (офлайн) бизнеса",
+    telebiznet: true,
+    franchise: false,
+    own: false,
   },
   {
     feature: "Понятный размер стартового капитала",
-    telebiznet: false,
-    franchise: true,
-    own: true,
+    telebiznet: true,
+    franchise: false,
+    own: false,
   },
   {
     feature: "Быстрый запуск",
